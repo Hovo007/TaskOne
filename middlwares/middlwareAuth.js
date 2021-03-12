@@ -1,17 +1,18 @@
-const {getRedis} = require('../services/nodeRedis')
+const {getter} = require('../services/redisService')
 
 
 const checkUser = async (req, res, next) => {
-    const user = await getRedis(req.headers.authorization);
-    if (user) {
-        res.status(200).json({
-            error: false,
-            message: 'Success',
-            data: user
-        });
-        return
+    try{
+        const user = await getter(req.headers.authorization);
+        // console.log('user => ', user)
+        if (!user) {
+            throw new Error('auth  error');
+        }
+        req.user = user;
+        next()
+    }catch (e){
+       next(e)
     }
-    next();
 }
 
 module.exports = {

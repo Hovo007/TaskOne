@@ -5,6 +5,7 @@
   "main": "index.js",
   "repository": "https://github.com/Hovo007/TaskOne.git",
   "dependencies": {
+    "ajv": "^7.1.1",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",

@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "email": {
+      "description": "positive integer or string of digits",
+      "type": "string",
+      "pattern": "^(([^<>()[\\]\\\\.,;:\\s@\"]+(\\.[^<>()[\\]\\\\.,;:\\s@\"]+)*)|(\".+\"))@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$"
+    }
+  },
+  "password": {
+    "description": "password of the account user",
+    "type": "string",
+    "nullable": false,
+    "minLength": 8,
+    "maxLength": 16,
+    "pattern": "^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\\s).{8,255}$"
+  },
+  "required": [
+    "email",
+    "password"
+  ]
+}
